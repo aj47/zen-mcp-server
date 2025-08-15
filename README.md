@@ -1,9 +1,11 @@
 # Zen MCP: Many Workflows. One Context.
 
+> **🔧 Fork Notice**: This is a fork of [BeehiveInnovations/zen-mcp-server](https://github.com/BeehiveInnovations/zen-mcp-server) specifically adapted for compatibility with [Auggie CLI](https://github.com/augmentcode/auggie) and [Augment Code](https://www.augmentcode.com/). All original functionality is preserved while adding seamless integration with Augment's development tools.
+
 [zen_web.webm](https://github.com/user-attachments/assets/851e3911-7f06-47c0-a4ab-a2601236697c)
 
 <div align="center">
-  <b>🤖 <a href="https://www.anthropic.com/claude-code">Claude</a> OR <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a> + [Gemini / OpenAI / Grok / OpenRouter / DIAL / Ollama / Any Model] = Your Ultimate AI Development Team</b>
+  <b>🤖 <a href="https://www.anthropic.com/claude-code">Claude</a> OR <a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a> OR <a href="https://github.com/augmentcode/auggie">Auggie CLI</a> + [Gemini / OpenAI / Grok / OpenRouter / DIAL / Ollama / Any Model] = Your Ultimate AI Development Team</b>
 </div>
 
 <br/>
@@ -50,6 +52,7 @@ Because these AI models [clearly aren't when they get chatty →](docs/ai_banter
 
 - **Getting Started**
   - [Quickstart](#quickstart-5-minutes) - Get running in 5 minutes
+  - [Auggie CLI Setup](#auggie-cli-integration) - Integration with Auggie and Augment Code
   - [Available Tools](#available-tools) - Overview of all tools
   - [AI-to-AI Conversations](#ai-to-ai-conversation-threading) - Multi-turn conversations
 
@@ -128,6 +131,44 @@ measuring again to ensure it improved, then share results. Check with gemini in 
 
 The final implementation resulted in a 26% improvement in JSON parsing performance for the selected library, reducing processing time through targeted, collaborative optimizations guided by Gemini’s analysis and Claude’s refinement.
 
+## Auggie CLI Integration
+
+This fork provides seamless integration with [Auggie CLI](https://github.com/augmentcode/auggie) and [Augment Code](https://www.augmentcode.com/), enabling you to use all Zen MCP tools directly within Augment's development environment.
+
+### Quick Setup for Auggie CLI
+
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/aj47/zen-mcp-server.git
+   cd zen-mcp-server
+   ```
+
+2. **Set up your API keys**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys (at least one required)
+   ```
+
+3. **Configure Auggie CLI**:
+   ```bash
+   # Copy and customize the config file
+   cp auggie-config.example.json auggie-config.json
+   # Edit auggie-config.json to point to your installation directory
+   ```
+
+4. **Use with Auggie**:
+   ```bash
+   auggie --mcp-config /path/to/zen-mcp-server/auggie-config.json
+   ```
+
+### Features with Auggie CLI
+
+- **All 16 AI tools available** - Use `analyze`, `codereview`, `debug`, `planner`, and more
+- **Multi-model support** - Access Gemini, OpenAI, GROK, OpenRouter, and custom models
+- **Secure configuration** - API keys stored in environment variables
+- **Cross-directory usage** - Run from any directory with absolute paths
+
+For detailed setup instructions, see [`AUGGIE_SETUP_FINAL.md`](AUGGIE_SETUP_FINAL.md).
 ## Quickstart (5 minutes)
 
 ### Prerequisites
@@ -416,7 +457,7 @@ Wraps your input with instructions for critical thinking and honest analysis.
 challenge isn't adding this function to the base class a bad idea?
 ```
 
-Normally, your favorite coding agent will enthusiastically reply with **“You’re absolutely right!”**—then proceed 
+Normally, your favorite coding agent will enthusiastically reply with **“You’re absolutely right!”**—then proceed
 to completely reverse the _correct_ strategy, without ever explaining why you're wrong.
 
 <details>
@@ -528,11 +569,11 @@ Nice! This is just one instance - take a look at [another example here](docs/too
 **[📖 Read More](docs/tools/precommit.md)** - Multi-repository validation and change analysis
 
 ### 8. `debug` - Expert Debugging Assistant
-Systematic investigation-guided debugging that walks Claude through step-by-step root cause analysis. This workflow 
-tool enforces a structured investigation process where Claude performs methodical code examination, evidence collection, 
-and hypothesis formation across multiple steps before receiving expert analysis from the selected AI model. When Claude's 
-confidence reaches **100% certainty** during the investigative workflow, expert analysis via another model is skipped to 
-save on tokens and cost, and Claude proceeds directly to fixing the issue. 
+Systematic investigation-guided debugging that walks Claude through step-by-step root cause analysis. This workflow
+tool enforces a structured investigation process where Claude performs methodical code examination, evidence collection,
+and hypothesis formation across multiple steps before receiving expert analysis from the selected AI model. When Claude's
+confidence reaches **100% certainty** during the investigative workflow, expert analysis via another model is skipped to
+save on tokens and cost, and Claude proceeds directly to fixing the issue.
 
 ```
 See logs under /Users/me/project/diagnostics.log and related code under the sync folder.

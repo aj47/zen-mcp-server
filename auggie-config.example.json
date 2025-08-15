@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "zen": {
+      "command": "python",
+      "args": ["/path/to/zen-mcp-server/mcp_server_wrapper.py"],
+      "cwd": "/path/to/zen-mcp-server",
+      "env": {
+        "PYTHONPATH": "/path/to/zen-mcp-server"
+      }
+    }
+  }
+}

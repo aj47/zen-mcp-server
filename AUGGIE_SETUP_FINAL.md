@@ -46,8 +46,14 @@ The server is now fully compatible with auggie CLI:
 
 ```bash
 # Use with auggie CLI (make sure .env file exists with your API keys)
-auggie --mcp-config /Users/ajjoobandi/Development/zen-mcp-server/test.json
+auggie --mcp-config /Users/ajjoobandi/Development/zen-mcp-server/auggie-config.json
 ```
+
+## 📁 Configuration Files
+
+- **`auggie-config.json`** - Your personalized configuration with absolute paths
+- **`auggie-config.example.json`** - Template for creating your own configuration
+- **`.env`** - Your API keys and environment variables (create from `.env.example`)
 
 ## 📋 Available Tools
 
@@ -79,7 +85,7 @@ python mcp_server_wrapper.py
 python debug_mcp.py
 
 # Use with auggie (ensure .env file exists)
-auggie --mcp-config test.json
+auggie --mcp-config auggie-config.json
 ```
 
 ## ✅ Success Indicators
